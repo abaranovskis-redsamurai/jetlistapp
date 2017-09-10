@@ -1,0 +1,71 @@
+/*
+    Document   : override
+    Created on : <date>
+    Author     : <author>
+    Description:
+        This is where any of your application specific styles should be included
+*/
+
+.demo-product-name{
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 90px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+}
+
+.demo-product-title{
+    color: #333;
+    font-size: 14px;
+    padding-left: 90px;
+    padding-bottom: 5px;
+}
+
+.demo-product-code{
+    color: #333;
+    font-size: 12px;
+    padding-left: 90px;
+}
+
+.demo-circular {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+}
+
+.demo-product-usage-ratio{
+    color: #309fdb;
+    font-size: 42px;
+    text-align: center;
+}
+
+.demo-product-usage-ratio-label{
+    text-align: center;
+    white-space: nowrap;
+}
+
+.demo-stock-quantity{
+    color: #309fdb;
+    font-size: 42px;
+    text-align: center;
+}
+
+.demo-stock-quantity-label{
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.demo-order-quantity{
+    color: #309fdb;
+    font-size: 42px;
+    text-align: center;
+}
+
+.demo-order-quantity-label{
+    text-align: center;
+    white-space: nowrap;
+}

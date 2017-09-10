@@ -1,0 +1,83 @@
+<!--
+ Copyright (c) 2014, 2017, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+ <div class="justifyCenter">
+     <div class="oj-flex oj-flex-items-pad">
+         <div class="oj-flex-item oj-sm-12 oj-padding-bottom">
+             <div class="oj-flex oj-flex-items-pad oj-sm-align-items-flex-end">
+                 <div id="pageTitleContainer" class="oj-flex-item oj-sm-2">
+                     <h1 style="margin-bottom:0">Products</h1>
+                 </div>
+                 <div class="oj-flex-item oj-sm-8 oj-flex oj-md-justify-content-center">
+                 </div>
+                 <div class="oj-flex-item oj-sm-2">
+                     <button id="bt1" style="float: right" data-bind="ojComponent: {
+                                                                        component:'ojButton',
+                                                                        label: 'Add Product'}"/>
+                     </button>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <div id="peoplelistview" >
+        <div class="oj-flex oj-flex-items-pad oj-sm-flex-direction-column" data-bind="template: 'productsListTemplate'"></div>
+    </div>
+</div>
+<script id="productsListTemplate" type="text/html">
+    <ul id="listview"
+        data-bind="ojComponent: {component: 'ojListView',
+            data: datasource,
+            item: {template: 'productlist_template'},
+            selectionMode: 'single',
+            currentItem: '100',
+            selection: ['100'],
+            optionChange: changeHandler,
+            rootAttributes: {style: 'width:100%;height:100vh;overflow:auto; margin-top: 5px'},
+            scrollPolicy: 'loadMoreOnScroll',
+            scrollPolicyOptions: {fetchSize: 10}}">
+    </ul>
+</script>
+<script id="productlist_template" type="text/html">
+    <li class="oj-flex-item oj-sm-12">
+        <div>
+            <div class="oj-flex oj-flex-items-pad">
+                <div class="oj-flex-item oj-lg-4 oj-md-4">
+                    <div id="gauge1" class="demo-circular"
+                         data-bind="ojComponent: {
+                             component: 'ojStatusMeterGauge',
+                             min: 0,
+                             max: 100,
+                             thresholds: [{max: 33}, {max: 67}, {}],
+                             value: $data['amount'],
+                             orientation: 'circular',
+                             metricLabel: {rendered: 'on'},
+                             plotArea: {rendered: 'on'},
+                             readOnly: false
+                         }"
+                         style="float:left;">
+                    </div>
+                    <h2 class="demo-product-name" data-bind="text: $data['productName']"></h2>
+                    <div class="demo-product-title" data-bind="text: $data['productTitle']"></div>
+                    <div class="demo-product-code" data-bind="text: $data['productCode']"></div>
+                </div>
+                <div class="oj-flex-item oj-lg-3 oj-md-3" style="min-width: 195px;">
+                </div>
+                <div class="oj-flex-item oj-lg-5 oj-md-4">
+                    <div class="oj-flex-item oj-sm-only-hide oj-md-4 oj-md-float-end">
+                        <div class="demo-product-usage-ratio" data-bind="text:$data['usageRatio'], style: {color: $data['usageRatio'] > 50 ? '#e95b54' : '#309fdb'}"></div>
+                        <div class="demo-product-usage-ratio-label">Usage Ratio</div>
+                    </div>
+                    <div class="oj-flex-item oj-sm-only-hide oj-md-4 oj-md-float-end">
+                        <div class="demo-stock-quantity" data-bind="text:$data['stockQuantity'], style: {color: $data['stockQuantity'] < 50 ? '#e95b54' : '#309fdb'}"></div>
+                        <div class="demo-stock-quantity-label">Stock</div>
+                    </div>
+                    <div class="oj-flex-item oj-sm-only-hide oj-md-4 oj-md-float-end">
+                        <div class="demo-order-quantity" data-bind="text: $data['orderQuantity']"></div>
+                        <div class="demo-order-quantity-label">Orders</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</script>
